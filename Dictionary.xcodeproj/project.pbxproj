@@ -10,10 +10,13 @@
 		FD6E9D08232A36E6007721DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D07232A36E6007721DC /* AppDelegate.m */; };
 		FD6E9D0B232A36E6007721DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D0A232A36E6007721DC /* ViewController.m */; };
 		FD6E9D0E232A36E6007721DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6E9D0C232A36E6007721DC /* Main.storyboard */; };
-		FD6E9D11232A36E6007721DC /* Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D0F232A36E6007721DC /* Dictionary.xcdatamodeld */; };
 		FD6E9D13232A36E8007721DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD6E9D12232A36E8007721DC /* Assets.xcassets */; };
 		FD6E9D16232A36E8007721DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6E9D14232A36E8007721DC /* LaunchScreen.storyboard */; };
 		FD6E9D19232A36E8007721DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D18232A36E8007721DC /* main.m */; };
+		FD6E9D23232A373B007721DC /* englishDictijnary.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FD6E9D22232A373B007721DC /* englishDictijnary.pdf */; };
+		FD6E9D26232A38D2007721DC /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E9D25232A38D2007721DC /* PDFKit.framework */; };
+		FD6E9D29232A67B5007721DC /* AVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D28232A67B5007721DC /* AVTextView.m */; };
+		FD6E9D2C232A6B25007721DC /* AVDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D2B232A6B25007721DC /* AVDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +26,16 @@
 		FD6E9D09232A36E6007721DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FD6E9D0A232A36E6007721DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FD6E9D0D232A36E6007721DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD6E9D10232A36E6007721DC /* Dictionary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dictionary.xcdatamodel; sourceTree = "<group>"; };
 		FD6E9D12232A36E8007721DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD6E9D15232A36E8007721DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD6E9D17232A36E8007721DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD6E9D18232A36E8007721DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD6E9D22232A373B007721DC /* englishDictijnary.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = englishDictijnary.pdf; sourceTree = "<group>"; };
+		FD6E9D25232A38D2007721DC /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		FD6E9D27232A67B5007721DC /* AVTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVTextView.h; sourceTree = "<group>"; };
+		FD6E9D28232A67B5007721DC /* AVTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTextView.m; sourceTree = "<group>"; };
+		FD6E9D2A232A6B25007721DC /* AVDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVDictionary.h; sourceTree = "<group>"; };
+		FD6E9D2B232A6B25007721DC /* AVDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6E9D26232A38D2007721DC /* PDFKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,7 @@
 			children = (
 				FD6E9D05232A36E6007721DC /* Dictionary */,
 				FD6E9D04232A36E6007721DC /* Products */,
+				FD6E9D24232A38D2007721DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +70,10 @@
 		FD6E9D05232A36E6007721DC /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				FD6E9D27232A67B5007721DC /* AVTextView.h */,
+				FD6E9D28232A67B5007721DC /* AVTextView.m */,
+				FD6E9D2A232A6B25007721DC /* AVDictionary.h */,
+				FD6E9D2B232A6B25007721DC /* AVDictionary.m */,
 				FD6E9D06232A36E6007721DC /* AppDelegate.h */,
 				FD6E9D07232A36E6007721DC /* AppDelegate.m */,
 				FD6E9D09232A36E6007721DC /* ViewController.h */,
@@ -69,9 +83,17 @@
 				FD6E9D14232A36E8007721DC /* LaunchScreen.storyboard */,
 				FD6E9D17232A36E8007721DC /* Info.plist */,
 				FD6E9D18232A36E8007721DC /* main.m */,
-				FD6E9D0F232A36E6007721DC /* Dictionary.xcdatamodeld */,
+				FD6E9D22232A373B007721DC /* englishDictijnary.pdf */,
 			);
 			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		FD6E9D24232A38D2007721DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD6E9D25232A38D2007721DC /* PDFKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6E9D23232A373B007721DC /* englishDictijnary.pdf in Resources */,
 				FD6E9D16232A36E8007721DC /* LaunchScreen.storyboard in Resources */,
 				FD6E9D13232A36E8007721DC /* Assets.xcassets in Resources */,
 				FD6E9D0E232A36E6007721DC /* Main.storyboard in Resources */,
@@ -144,8 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD6E9D11232A36E6007721DC /* Dictionary.xcdatamodeld in Sources */,
+				FD6E9D29232A67B5007721DC /* AVTextView.m in Sources */,
 				FD6E9D0B232A36E6007721DC /* ViewController.m in Sources */,
+				FD6E9D2C232A6B25007721DC /* AVDictionary.m in Sources */,
 				FD6E9D19232A36E8007721DC /* main.m in Sources */,
 				FD6E9D08232A36E6007721DC /* AppDelegate.m in Sources */,
 			);
@@ -341,19 +365,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FD6E9D0F232A36E6007721DC /* Dictionary.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FD6E9D10232A36E6007721DC /* Dictionary.xcdatamodel */,
-			);
-			currentVersion = FD6E9D10232A36E6007721DC /* Dictionary.xcdatamodel */;
-			path = Dictionary.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FD6E9CFB232A36E6007721DC /* Project object */;
 }

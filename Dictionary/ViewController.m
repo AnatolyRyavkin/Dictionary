@@ -16,7 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self.textViewDict initPropertys];
+
+    NSLog(@"count=%lu",(unsigned long)self.textViewDict.string.length);
+
+    NSArray*array = [[NSArray alloc]init];
+    NSString*string = self.textViewDict.string;
+    array = [string componentsSeparatedByString:@" "];
+    NSMutableString*mutableString = [[NSMutableString alloc]init];
+    for(NSString*string in array){
+        [mutableString appendFormat:@"%@\n",string];
+    }
+    NSLog(@"ArrayCount=%lu",(unsigned long)array.count);
+    //self.textViewDict.text = self.textViewDict.string;
+    self.textViewDict.text =mutableString;
+
 }
 
 
