@@ -12,7 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AVDictionary : NSObject
-
 @property PDFDocument* document;
 
 @property NSString*str;

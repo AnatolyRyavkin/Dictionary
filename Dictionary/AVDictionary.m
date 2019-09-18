@@ -14,26 +14,19 @@
     self = [super init];
     if(self){
 
-            //NSURL* urlDocument = [[NSURL alloc] initWithString:@"/Users/ryavkinto/Documents/Objective C/Dictionary/Dictionary/englishDictijnary.pdf"];
-        NSURL* urlDocument = [[NSURL alloc] initFileURLWithPath:@"/Users/ryavkinto/Documents/Objective C/Dictionary/Dictionary/englishDictijnary.pdf"];
-
-        self.document = [[PDFDocument alloc]initWithURL:urlDocument];
-
+        //NSURL* urlDocument = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle]pathForResource:@"englishDictijnary" ofType:@"pdf"]];
+        //self.document = [[PDFDocument alloc]initWithURL:urlDocument];
         NSOperationQueue*queue = [[NSOperationQueue alloc]init];
-
         NSBlockOperation*block = [[NSBlockOperation alloc] init];
-
         [block addExecutionBlock:^{
-            NSString*str = [self.document string];
-            self.str = str;
+            NSError*error = nil;
+            self.str = [NSString stringWithContentsOfFile:@"/Users/ryavkinto/Documents/Objective C/1/savedString1.txt" encoding:NSUnicodeStringEncoding error:&error];
+            if(error!=nil)
+                NSLog(@"error= %@",[error description]);
         }];
 
         [queue addOperations:@[block] waitUntilFinished:YES];
-
-        //NSLog(@"doc: %@",self.str);
-
     }
-
     return self;
 }
 
