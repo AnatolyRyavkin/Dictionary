@@ -18,6 +18,7 @@
 		FD6E9D26232A38D2007721DC /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E9D25232A38D2007721DC /* PDFKit.framework */; };
 		FD6E9D29232A67B5007721DC /* AVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D28232A67B5007721DC /* AVTextView.m */; };
 		FD6E9D2C232A6B25007721DC /* AVDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6E9D2B232A6B25007721DC /* AVDictionary.m */; };
+		FD891866233376E300C83E88 /* AVObjectElement.m in Sources */ = {isa = PBXBuildFile; fileRef = FD891865233376E300C83E88 /* AVObjectElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		FD6E9D28232A67B5007721DC /* AVTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTextView.m; sourceTree = "<group>"; };
 		FD6E9D2A232A6B25007721DC /* AVDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVDictionary.h; sourceTree = "<group>"; };
 		FD6E9D2B232A6B25007721DC /* AVDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVDictionary.m; sourceTree = "<group>"; };
+		FD891864233376E300C83E88 /* AVObjectElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVObjectElement.h; sourceTree = "<group>"; };
+		FD891865233376E300C83E88 /* AVObjectElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVObjectElement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				FD6E9D07232A36E6007721DC /* AppDelegate.m */,
 				FD6E9D09232A36E6007721DC /* ViewController.h */,
 				FD6E9D0A232A36E6007721DC /* ViewController.m */,
+				FD891864233376E300C83E88 /* AVObjectElement.h */,
+				FD891865233376E300C83E88 /* AVObjectElement.m */,
 				FD6E9D0C232A36E6007721DC /* Main.storyboard */,
 				FD6E9D12232A36E8007721DC /* Assets.xcassets */,
 				FD6E9D14232A36E8007721DC /* LaunchScreen.storyboard */,
@@ -173,6 +178,7 @@
 			files = (
 				FD6E9D29232A67B5007721DC /* AVTextView.m in Sources */,
 				FD6E9D0B232A36E6007721DC /* ViewController.m in Sources */,
+				FD891866233376E300C83E88 /* AVObjectElement.m in Sources */,
 				FD6E9D2C232A6B25007721DC /* AVDictionary.m in Sources */,
 				FD6E9D19232A36E8007721DC /* main.m in Sources */,
 				FD6E9D08232A36E6007721DC /* AppDelegate.m in Sources */,

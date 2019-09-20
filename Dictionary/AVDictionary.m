@@ -20,7 +20,7 @@
         NSBlockOperation*block = [[NSBlockOperation alloc] init];
         [block addExecutionBlock:^{
             NSError*error = nil;
-            self.str = [NSString stringWithContentsOfFile:@"/Users/ryavkinto/Documents/Objective C/1/savedString1.txt" encoding:NSUnicodeStringEncoding error:&error];
+            self.str = [NSString stringWithContentsOfFile:@"/Users/ryavkinto/Documents/Objective C/1/savedString2.txt" encoding:NSUnicodeStringEncoding error:&error];
             if(error!=nil)
                 NSLog(@"error= %@",[error description]);
         }];

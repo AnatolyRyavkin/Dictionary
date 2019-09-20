@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "AVDictionary.h"
 #import "AVTextView.h"
+#import "AVObjectElement.h"
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet AVTextView *textViewDict;
+
+@property NSMutableString *ollString;
+
+@property NSMutableString *tempObjectString;
+
+@property NSArray *arrayObject;
 
 @property AVDictionary*dictionary;
 
