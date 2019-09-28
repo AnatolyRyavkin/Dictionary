@@ -14,6 +14,18 @@
 
 @implementation ViewController
 
+-(void)arrayRemoveString:(NSMutableArray*)array atString:(NSString*)stringDel1 andAtString:(NSString*)stringDel2 andAtStringDel3:(NSString*)stringDel3 andFlag:(NSInteger*)flagEnd{
+    *flagEnd = 0;
+    for(NSString*string in array){
+        if([string isEqualToString:stringDel1] || [string isEqualToString:stringDel2] || [string isEqualToString:stringDel3] ){
+            [array removeObject:string];
+            break;
+        }
+    }
+    *flagEnd = 1;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -255,6 +267,8 @@
 */
 }
 
+
+
 -(void)viewDidAppear:(BOOL)animated{
 
     /*
@@ -301,6 +315,14 @@
         [self.ollString deleteCharactersInRange:NSMakeRange(0,8251)];
     //NSLog(@"new=%@",self.ollString);
 
+
+    //replasement "■"
+
+
+
+
+    self.ollString = [NSMutableString stringWithString: [self.ollString stringByReplacingOccurrencesOfString:@"■" withString:@" [■] "]];
+    self.ollString = [NSMutableString stringWithString: [self.ollString stringByReplacingOccurrencesOfString:@"⃟" withString:@"  ◊ "]];
 
 //divide at [ and insert [
     NSMutableCharacterSet*set = [[NSMutableCharacterSet alloc]init];
@@ -407,6 +429,9 @@
         }
     }
 
+
+
+
     for(NSMutableArray*arrayObject in arrayMain){
         NSInteger flagEnd=0;
         while (flagEnd!=YES) {
@@ -414,43 +439,154 @@
         }
     }
 
-    for(NSMutableArray*array in arrayMain){
-        for(int i=0;i<array.count-1;i++){
-            NSMutableString*string = [NSMutableString stringWithString:array[i]];
 
-            NSUInteger count = string.length;
-            unichar cc = [string characterAtIndex:count-1];
-            NSString*str = [NSString stringWithCharacters:&cc length:1];
 
-            if([str isEqualToString:@"-"]){
-                [string replaceCharactersInRange:NSMakeRange(count-1, 1) withString:array[i+1]];
-                array[i] = string;
-                array[i+1] = @" ";
+
+    for(int k=0;k<arrayMain.count;k++){
+        //NSLog(@"k=%d",k);
+        NSMutableArray*array = [NSMutableArray arrayWithArray: arrayMain[k]];
+        NSMutableString*string;
+        for(int i=0;i<array.count;i++){
+                                //NSLog(@"i=%d",i);
+                                string = [NSMutableString stringWithString:array[i]];
+                                BOOL checOpen = 0;
+                                BOOL checClosed = 0;
+                                for(int a=0;a<string.length;a++){
+                                    unichar c1 = [string characterAtIndex:a];
+                                    NSString*str = [NSString stringWithCharacters:&c1 length:1];
+                                    checOpen = ([str isEqualToString:@"("]) ? !checOpen : checOpen;
+                                    checClosed = ([str isEqualToString:@")"]) ? !checClosed : checClosed;
+                                 }
+            if(checOpen!=checClosed){
+                    NSString*str1;
+                    for( int j=i+1;j<array.count;j++){
+                        BOOL b=0;
+                        NSString*string1=array[j];
+                        for(int a=(int)string1.length-1;a>=0;a--){
+                                    unichar c1 = [string1 characterAtIndex:a];
+                                    str1 = [NSString stringWithCharacters:&c1 length:1];
+                                    if([str1 isEqualToString:@")"]){
+                                        NSMutableString*string2 = [NSMutableString stringWithString:array[j]];
+                                        array[j] = @" ";
+                                        arrayMain[k][j]=@" ";
+                                        [string appendFormat:@" %@",string2];
+                                        arrayMain[k][i]=string;
+                                        array[i] = string;
+                                        b=1;
+                                        break;
+                                    }
+                        }
+                        if(b) break;
+                        NSMutableString*string2 = [NSMutableString stringWithString:array[j]];
+                        array[j] = @" ";
+                        arrayMain[k][j]=@" ";
+                        [string appendFormat:@" %@",string2];
+                        arrayMain[k][i]=string;
+                        array[i] = string;
+                }
+        }
+    }
+ }
+
+    for(NSMutableArray*arrayObject in arrayMain){
+        NSInteger flagEnd=0;
+        while (flagEnd!=YES) {
+            [self arrayRemoveString:arrayObject atString:@" " andAtString:@"" andAtStringDel3:@"[" andFlag:&flagEnd];
+        }
+    }
+
+    for(int k=0;k<arrayMain.count;k++){
+            //NSLog(@"k=%d",k);
+        NSMutableArray*array = [NSMutableArray arrayWithArray: arrayMain[k]];
+        NSMutableString*string;
+        for(int i=0;i<array.count;i++){
+                //NSLog(@"i=%d",i);
+            string = [NSMutableString stringWithString:array[i]];
+            BOOL checOpen = 0;
+            BOOL checClosed = 0;
+            for(int a=0;a<string.length;a++){
+                unichar c1 = [string characterAtIndex:a];
+                NSString*str = [NSString stringWithCharacters:&c1 length:1];
+                checOpen = ([str isEqualToString:@"["]) ? !checOpen : checOpen;
+                checClosed = ([str isEqualToString:@"]"]) ? !checClosed : checClosed;
+            }
+            if(checOpen!=checClosed){
+                NSString*str1;
+                for( int j=i+1;j<array.count;j++){
+                    BOOL b=0;
+                    NSString*string1=array[j];
+                    for(int a=(int)string1.length-1;a>=0;a--){
+                        unichar c1 = [string1 characterAtIndex:a];
+                        str1 = [NSString stringWithCharacters:&c1 length:1];
+                        if([str1 isEqualToString:@"]"]){
+                            NSMutableString*string2 = [NSMutableString stringWithString:array[j]];
+                            array[j] = @" ";
+                            arrayMain[k][j]=@" ";
+                            [string appendFormat:@" %@",string2];
+                            arrayMain[k][i]=string;
+                            array[i] = string;
+                            b=1;
+                            break;
+                        }
+                    }
+                    if(b) break;
+                    NSMutableString*string2 = [NSMutableString stringWithString:array[j]];
+                    array[j] = @" ";
+                    arrayMain[k][j]=@" ";
+                    [string appendFormat:@" %@",string2];
+                    arrayMain[k][i]=string;
+                    array[i] = string;
+                }
             }
         }
     }
 
+    for(NSMutableArray*arrayObject1 in arrayMain){
+        NSInteger flagEnd=0;
+        while (flagEnd!=YES) {
+            [self arrayRemoveString:arrayObject1 atString:@" " andAtString:@"" andAtStringDel3:@"[" andFlag:&flagEnd];
+        }
+    }
+
+    NSMutableString*stringMain = [[NSMutableString alloc]init];
+    for(NSMutableArray*arrayObject2 in arrayMain){
+        [stringMain appendFormat:@"obj$"];
+        for(NSString*string in arrayObject2){
+            [stringMain appendFormat:@"##%@",string];
+        }
+    }
+
+    self.ollStringEnd = stringMain;
+
+    NSLog(@"string=%@",self.ollStringEnd);
+
+    
+
+    NSString *fileName = @"savedStringEnding.txt";
+    NSString *path = [@"/Users/ryavkinto/Documents/Objective C/1" stringByAppendingPathComponent:fileName];
+    [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+    NSError*error = nil;
+    [stringMain writeToFile:path atomically:YES encoding: NSUnicodeStringEncoding error:&error];
+    if(error!=nil)
+        NSLog(@"error :%@",[error description]);
 
 
+/*
     int i = 0;
     for(NSArray*array in arrayMain){
         NSLog(@"-----------------------object %d",i);
         i++;
         for(NSString*str in array){
-            NSLog(@"-----%@",str);
+            if([str isEqualToString:@" "])
+                NSLog(@"------------------------------- ");
+            else
+                NSLog(@"-----%@",str);
         }
     }
+*/
+
+
 }
 
--(void)arrayRemoveString:(NSMutableArray*)array atString:(NSString*)stringDel1 andAtString:(NSString*)stringDel2 andAtStringDel3:(NSString*)stringDel3 andFlag:(NSInteger*)flagEnd{
-    *flagEnd = 0;
-    for(NSString*string in array){
-        if([string isEqualToString:stringDel1] || [string isEqualToString:stringDel2] || [string isEqualToString:stringDel3] ){
-            [array removeObject:string];
-            break;
-        }
-    }
-     *flagEnd = 1;
-}
 
 @end

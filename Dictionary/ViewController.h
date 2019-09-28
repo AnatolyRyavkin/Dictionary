@@ -16,6 +16,9 @@
 
 @property NSMutableString *ollString;
 
+@property NSMutableString *ollStringEnd;
+
+
 @property NSMutableString *tempObjectString;
 
 @property NSArray *arrayObject;
